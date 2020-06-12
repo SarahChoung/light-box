@@ -1,0 +1,41 @@
+body {
+  background-color: rgb(247, 248, 249);
+}
+header {
+  color: white;
+  background-color: rgb(46, 51, 56);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 10px 5%;
+}
+
+p.logo {
+  font-size: 25px;
+  margin: auto;
+}
+
+div.product-card {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  background-color: white;
+}
+
+div.image-container {
+  width: 100%;
+  height: 70%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  object-fit: contain;
+  background-position: center;
+}
+
+.shake-weight {
+  background-image: url("./images/shake-weight.jpg");
+}
+
+p.price {
+  color: grey;
+}
