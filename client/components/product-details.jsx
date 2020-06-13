@@ -26,7 +26,10 @@ export default class ProductDetails extends React.Component {
       return (
         <div className="description-container">
           <div className="pt-4">
-            <button className="btn btn-link">&lt; Back to catalog</button>
+            <button
+              onClick={() => this.props.setView('catalog', {})}
+              className="btn btn-link"
+            >&lt; Back to catalog</button>
           </div>
           <div className="description-image-container">
             <img className="description-image" src={product.image}/>
