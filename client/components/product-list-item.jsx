@@ -2,9 +2,8 @@ import React from 'react';
 
 export default function ProductListItem(props) {
   const price = convertToPrice(props.price);
-
   return (
-    <div className="product-card">
+    <div className="product-card" onClick={() => props.setView('details', { productId: props.productId })}>
       <div className= "image-container">
         <img src={props.image}></img>
       </div>
