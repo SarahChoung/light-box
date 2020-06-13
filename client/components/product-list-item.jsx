@@ -1,8 +1,11 @@
 import React from 'react';
 
 export default function ProductListItem(props) {
+  // get image path
   const imgClass = props.name.toLowerCase().replace(' ', '-');
   const imgPath = './images/' + imgClass + '.jpg';
+
+  // convert number to price notation
   const priceRaw = props.price.toString();
   const priceArray = priceRaw.split('');
   priceArray.splice(priceArray.length - 2, 0, '.');
