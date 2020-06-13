@@ -20,12 +20,22 @@ export default class ProductDetails extends React.Component {
 
   render() {
     if (this.state.product) {
-      const price = convertToPrice(this.state.product.price);
+      const product = this.state.product;
+      const price = convertToPrice(product.price);
       return (
-        <div>
-          <p> &lt; Back to catalog</p>
-          <h2>{this.state.product.name}</h2>
-          <h3>{`$${price}`}</h3>
+        <div className="description-container">
+          <div className="pt-4">
+            <button className="btn btn-link">&lt; Back to catalog</button>
+          </div>
+          <div className="description-image-container">
+            <img className="description-image" src={product.image}/>
+          </div>
+          <div className="description-info-container">
+            <h4 className="name">{product.name}</h4>
+            <p className="price">{`$${price}`}</p>
+            <p className="short-description">{product.shortDescription}</p>
+          </div>
+          <p className="long-description clear">{product.longDescription}</p>
         </div>
       );
     } else {

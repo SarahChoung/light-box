@@ -1,6 +1,3 @@
-body {
-  background-color: rgb(247, 248, 249);
-}
 header {
   color: white;
   background-color: rgb(46, 51, 56);
@@ -16,16 +13,16 @@ p.logo {
 }
 
 .listContainer {
-  width: 90%;
+  background-color: rgb(247, 248, 249);
   margin: auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 2%;
+  padding: 1% 5%;
 }
 
 div.product-card {
-  flex-basis: calc(95%/3);
+  flex-basis: calc(90%/3);
   margin-top: 1%;
   background-color: white;
   height: 450px;
@@ -49,5 +46,28 @@ div.info-container {
 
 
 p.price {
+  color: grey;
+}
+
+div.description-container {
+  width: 90%;
+  margin: auto;
+}
+
+.description-image-container {
+  width: 40%;
+  float: left;
+  padding: 0 4% 2%;
+}
+
+.description-image {
+  object-fit: contain;
+}
+
+.clear {
+  clear: left;
+}
+
+button.back-button {
   color: grey;
 }
