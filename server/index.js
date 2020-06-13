@@ -52,7 +52,7 @@ app.get('/api/products/:productId', (req, res, next) => {
     .then(result => {
       const product = result.rows[0];
       if (!product) {
-        next(new ClientError(`Cannot find product with "productId" ${productId}`));
+        next(new ClientError(`Cannot find product with "productId" ${productId}`, 404));
       } else {
         res.status(200).json(product);
       }
