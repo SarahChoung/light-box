@@ -1,0 +1,53 @@
+body {
+  background-color: rgb(247, 248, 249);
+}
+header {
+  color: white;
+  background-color: rgb(46, 51, 56);
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 10px 5%;
+}
+
+p.logo {
+  font-size: 25px;
+  margin: auto;
+}
+
+.listContainer {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2%;
+}
+
+div.product-card {
+  flex-basis: calc(95%/3);
+  margin-top: 1%;
+  background-color: white;
+  height: 450px;
+}
+
+.image-container {
+  height: 60%;
+}
+
+img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+div.info-container {
+  padding: 10px 15px 0;
+  height: 40%;
+  overflow: auto;
+}
+
+
+p.price {
+  color: grey;
+}
