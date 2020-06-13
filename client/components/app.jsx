@@ -43,14 +43,16 @@ export default class App extends React.Component {
       return (
         <div>
           <Header />
-          <ProductList />
+          <ProductList setView={this.setView}/>
         </div>
       );
     } else if (view === 'details') {
       return (
         <div>
           <Header />
-          <ProductDetails />
+          <ProductDetails
+            params={this.state.view.params}
+            setView={this.setView}/>
         </div>
       );
     }
