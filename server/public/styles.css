@@ -5,10 +5,7 @@ body {
 header {
   color: white;
   background-color: rgb(46, 51, 56);
-  left: 0;
-  right: 0;
-  top: 0;
-  padding: 10px 5%;
+  padding: 1% 5%;
 }
 
 p.logo {
@@ -21,15 +18,16 @@ p.logo {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-content: space-betwen;
   margin: 1% 5%;
 }
 
 div.product-card {
   flex-basis: calc(90%/3);
-  margin-top: 1%;
   background-color: white;
   height: 450px;
   border: 1px solid lightgray;
+  margin-top: 1%;
 }
 
 .image-container {

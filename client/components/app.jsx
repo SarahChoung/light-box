@@ -45,29 +45,25 @@ export default class App extends React.Component {
   }
 
   render() {
-
     if (this.state.isLoading) {
       return <h1>Testing connections...</h1>;
     }
 
     const view = this.state.view.name;
+    let pageBody;
     if (view === 'catalog') {
-      return (
-        <div>
-          <Header />
-          <ProductList setView={this.setView}/>
-        </div>
-      );
+      pageBody = <ProductList setView={this.setView} />;
     } else if (view === 'details') {
-      return (
-        <div>
-          <Header
-            cartItemCount={this.state.cart.length}/>
-          <ProductDetails
-            params={this.state.view.params}
-            setView={this.setView}/>
-        </div>
-      );
+      pageBody = <ProductDetails
+        params={this.state.view.params}
+        setView={this.setView} />;
     }
+    return (
+      <div>
+        <Header
+          cartItemCount={this.state.cart.length}/>
+        {pageBody}
+      </div>
+    );
   }
 }
