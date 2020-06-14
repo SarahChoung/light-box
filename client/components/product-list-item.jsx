@@ -1,20 +1,11 @@
 import React from 'react';
 
 export default function ProductListItem(props) {
-  // get image path
-  const imgClass = props.name.toLowerCase().replace(' ', '-');
-  const imgPath = './images/' + imgClass + '.jpg';
-
-  // convert number to price notation
-  const priceRaw = props.price.toString();
-  const priceArray = priceRaw.split('');
-  priceArray.splice(priceArray.length - 2, 0, '.');
-  const price = priceArray.join('');
-
+  const price = convertToPrice(props.price);
   return (
-    <div className="product-card">
+    <div className="product-card" onClick={() => props.setView('details', { productId: props.productId })}>
       <div className= "image-container">
-        <img src={imgPath}></img>
+        <img src={props.image}></img>
       </div>
       <div className = "info-container">
         <h4 className="name">{props.name}</h4>
@@ -23,4 +14,10 @@ export default function ProductListItem(props) {
       </div>
     </div>
   );
+
+  function convertToPrice(rawPrice) {
+    const priceArray = rawPrice.toString().split('');
+    priceArray.splice(priceArray.length - 2, 0, '.');
+    return priceArray.join('');
+  }
 }

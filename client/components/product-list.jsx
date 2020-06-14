@@ -27,7 +27,10 @@ export default class ProductList extends React.Component {
     const listElements = productsList.map(product => {
       return (
         <ProductListItem
+          setView={this.props.setView}
           key={product.productId}
+          productId={product.productId}
+          image={product.image}
           name={product.name}
           price={product.price}
           shortDescription={product.shortDescription}

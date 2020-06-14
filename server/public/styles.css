@@ -1,6 +1,7 @@
 body {
   background-color: rgb(247, 248, 249);
 }
+
 header {
   color: white;
   background-color: rgb(46, 51, 56);
@@ -15,20 +16,20 @@ p.logo {
   margin: auto;
 }
 
+/* Catalog */
 .listContainer {
-  width: 90%;
-  margin: auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 2%;
+  margin: 1% 5%;
 }
 
 div.product-card {
-  flex-basis: calc(95%/3);
+  flex-basis: calc(90%/3);
   margin-top: 1%;
   background-color: white;
   height: 450px;
+  border: 1px solid lightgray;
 }
 
 .image-container {
@@ -47,7 +48,48 @@ div.info-container {
   overflow: auto;
 }
 
-
 p.price {
+  color: grey;
+}
+
+/* description page */
+.description-container {
+  background-color: white;
+  box-sizing: border-box;
+  width: 90%;
+  margin: 2% 5%;
+  padding: 2%;
+  max-height: 90vh;
+  border: 1px solid lightgray;
+}
+
+.description-image-container {
+  width: 40%;
+  max-height: 30%;
+  float: left;
+}
+
+.description-image {
+  width: 100%;
+  height: 40vh;
+  object-fit: contain;
+}
+
+.description-info-container {
+  padding: 0 2%;
+  display: inline-block;
+  width: 60%;
+}
+
+.long-description {
+  padding-top: 5%;
+  margin: 0;
+}
+
+.clear {
+  clear: left;
+}
+
+button.back-button {
   color: grey;
 }
