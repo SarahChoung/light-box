@@ -40,6 +40,10 @@ export default class ProductDetails extends React.Component {
             <h4 className="name">{product.name}</h4>
             <p className="price">{`$${price}`}</p>
             <p className="short-description">{product.shortDescription}</p>
+            <button
+              className="btn btn-primary"
+              onClick={() => this.props.addToCart(product)}
+            >Add to Cart</button>
           </div>
           <p className="long-description clear">{longDescription}</p>
         </div>
