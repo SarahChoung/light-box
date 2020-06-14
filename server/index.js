@@ -69,6 +69,44 @@ app.get('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.post('/api/cart/', (req, res, next) => {
+  const productId = Number(req.body.productId);
+  if (!Number.isInteger(productId) || productId <= 0) {
+    next(new ClientError('"productId" must be a positive integer', 400));
+  }
+  const sql = `
+    select "price"
+    from "products"
+    where "productId" = $1
+  `;
+  const params = [productId];
+  db.query(sql, params)
+    .then(result => {
+      const product = result.rows[0];
+      if (!product) {
+        throw (new ClientError(`Cannot find product with productId ${productId}`, 400));
+      }
+      const sql = `
+        insert into "carts"("cartId", "createdAt")
+        values(default, default )
+        returning "cartId"
+      `;
+      return db.query(sql)
+        .then(result => {
+          const cartId = result.rows[0];
+          return {
+            cartId: cartId.cartId,
+            price: product.price
+          };
+        });
+    })
+    .then(result => console.log(result))
+    .then()
+    .catch(err => next(err));
+
+// AEHGOEWHGOWEGHWOGH
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
