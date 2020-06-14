@@ -84,7 +84,7 @@ app.get('/api/cart', (req, res, next) => {
 app.post('/api/cart/', (req, res, next) => {
   const productId = Number(req.body.productId);
   if (!Number.isInteger(productId) || productId <= 0) {
-    next(new ClientError('"productId" must be a positive integer', 400));
+    return next(new ClientError('"productId" must be a positive integer', 400));
   }
   const sql = `
     select "price"
@@ -94,10 +94,10 @@ app.post('/api/cart/', (req, res, next) => {
   const params = [productId];
   db.query(sql, params)
     .then(result => {
-      const price = result.rows[0].price;
-      if (!price) {
+      if (!result.rowCount) {
         throw (new ClientError(`Cannot find product with productId ${productId}`, 400));
       }
+      const price = result.rows[0].price;
       if (req.session.cartId) {
         return {
           cartId: req.session.cartId,
