@@ -153,8 +153,6 @@ app.post('/api/cart/', (req, res, next) => {
         });
     })
     .catch(err => next(err));
-
-// AEHGOEWHGOWEGHWOGH
 });
 
 app.use('/api', (req, res, next) => {
