@@ -27,7 +27,7 @@ export default class ProductDetails extends React.Component {
 
       return (
         <div className="description-container">
-          <div className="pt-4 pb-4">
+          <div className="pt-2 pb-3">
             <button
               onClick={() => this.props.setView('catalog', {})}
               className="btn btn-link pl-0"
