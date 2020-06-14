@@ -56,6 +56,19 @@ app.get('/api/products/:productId', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/cart', (req, res, next) => {
+  const sql = `
+    select *
+      from "carts"
+  `;
+  db.query(sql)
+    .then(result => {
+      const cart = result.rows;
+      res.status(200).json(cart);
+    })
+    .catch(err => next(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
