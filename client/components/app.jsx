@@ -12,9 +12,12 @@ export default class App extends React.Component {
       view: {
         name: 'catalog',
         params: {}
-      }
+      },
+      cart: []
     };
     this.setView = this.setView.bind(this);
+    this.getCartItems = this.getCartItems.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   setView(name, params) {
@@ -24,37 +27,63 @@ export default class App extends React.Component {
     this.setState({ view });
   }
 
+  getCartItems() {
+    fetch('/api/cart')
+      .then(res => res.json())
+      .then(cartItems => this.setState({
+        cart: cartItems
+      }))
+      .catch(err => console.error(err));
+  }
+
+  addToCart(product) {
+    const req = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(product)
+    };
+    fetch('/api/cart', req)
+      .then(res => res.json())
+      .then(cartItems => {
+        const cartList = this.state.cart;
+        const updatedCartList = cartList.concat(cartItems);
+        this.setState({
+          cart: updatedCartList
+        });
+      })
+      .catch(err => console.error(err));
+  }
+
   componentDidMount() {
     fetch('/api/health-check')
       .then(res => res.json())
       .then(data => this.setState({ message: data.message || data.error }))
       .catch(err => this.setState({ message: err.message }))
       .finally(() => this.setState({ isLoading: false }));
+    this.getCartItems();
   }
 
   render() {
-
     if (this.state.isLoading) {
       return <h1>Testing connections...</h1>;
     }
 
     const view = this.state.view.name;
+    let pageBody;
     if (view === 'catalog') {
-      return (
-        <div>
-          <Header />
-          <ProductList setView={this.setView}/>
-        </div>
-      );
+      pageBody = <ProductList setView={this.setView} />;
     } else if (view === 'details') {
-      return (
-        <div>
-          <Header />
-          <ProductDetails
-            params={this.state.view.params}
-            setView={this.setView}/>
-        </div>
-      );
+      pageBody = <ProductDetails
+        addToCart={this.addToCart}
+        params={this.state.view.params}
+        setView={this.setView} />;
     }
+    return (
+      <div>
+        <Header
+          cartItemCount={this.state.cart.length}/>
+        {pageBody}
+      </div>
+    );
   }
 }

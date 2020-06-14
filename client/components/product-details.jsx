@@ -27,7 +27,7 @@ export default class ProductDetails extends React.Component {
 
       return (
         <div className="description-container">
-          <div className="pt-4 pb-4">
+          <div className="pt-2 pb-3">
             <button
               onClick={() => this.props.setView('catalog', {})}
               className="btn btn-link pl-0"
@@ -40,6 +40,10 @@ export default class ProductDetails extends React.Component {
             <h4 className="name">{product.name}</h4>
             <p className="price">{`$${price}`}</p>
             <p className="short-description">{product.shortDescription}</p>
+            <button
+              className="btn btn-primary"
+              onClick={() => this.props.addToCart(product)}
+            >Add to Cart</button>
           </div>
           <p className="long-description clear">{longDescription}</p>
         </div>
