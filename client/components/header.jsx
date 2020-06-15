@@ -11,7 +11,7 @@ export default class Header extends React.Component {
     }
     return (
       <header className="d-flex justify-content-between align-items-center">
-        <div>
+        <div className="logo" onClick={() => this.props.setView('catalog', {})}>
           <p className="logo"><i className="fas fa-dollar-sign"></i> Wicked Sales</p>
         </div>
         <div

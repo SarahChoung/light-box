@@ -129,6 +129,11 @@ button.back-button {
   cursor: pointer;
 }
 
+.logo {
+  cursor: pointer;
+}
+
+
 /* Checkout Form */
 .checkout-container {
   margin: 1% 5%;

@@ -49,7 +49,7 @@ export default class CartSummary extends React.Component {
           <h3>{`Item Total $${itemTotal}`}</h3>
           <button
             className={`btn btn-primary ${hide}`}
-            onClick={() => this.props.setView('checkout', {})}>Check Out</button>
+            onClick={() => this.props.setView('checkout', {})}>Checkout</button>
         </div>
       </div>
     );
