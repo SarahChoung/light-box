@@ -26,41 +26,49 @@ export default class CheckoutForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="checkout-container">
         <div>
           <h3>My Cart</h3>
-          <p>Order Total: </p>
+          <p className="price font-weight-bold mt-3">Order Total: </p>
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-
-          <label htmlFor="credit-card">Credit Card</label>
-          <input
-            type="text"
-            name="creditCard"
-            id="credit-card"
-            value={this.state.creditCard}
-            onChange={this.handleChange}
-          />
-
-          <label htmlFor="shipping-address">Shipping Address</label>
-          <textarea
-            type="text"
-            name="shippingAddress"
-            id="shipping-address"
-            value={this.state.shippingAddress}
-            onChange={this.handleChange}
-          >
-          </textarea>
-
-          <button type="submit">Submit</button>
+        <form
+          onSubmit={this.handleSubmit}
+          className="order-form">
+          <div>
+            <label htmlFor="name">Name</label><br/>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="credit-card">Credit Card</label><br/>
+            <input
+              type="text"
+              name="creditCard"
+              id="credit-card"
+              value={this.state.creditCard}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="shipping-address">Shipping Address</label><br/>
+            <textarea
+              type="text"
+              name="shippingAddress"
+              id="shipping-address"
+              value={this.state.shippingAddress}
+              onChange={this.handleChange}
+            >
+            </textarea>
+          </div>
+          <div className = "d-flex justify-content-between">
+            <button onClick={() => this.props.setView('catalog', {})} className="btn btn-link pl-0" type="button">&lt; Return to Shopping</button>
+            <button className="btn btn-primary" type="submit">Submit</button>
+          </div>
         </form>
       </div>
 
