@@ -168,10 +168,8 @@ app.post('/api/orders', (req, res, next) => {
     return db.query(sql, params)
       .then(result => {
         const order = result.rows[0];
-        if (order) {
-          delete req.session.cartId;
-          return res.status(201).json(order);
-        }
+        delete req.session.cartId;
+        return res.status(201).json(order);
       })
       .catch(err => next(err));
   } else {
