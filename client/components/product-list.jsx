@@ -38,7 +38,7 @@ export default class ProductList extends React.Component {
       );
     });
     return (
-      <div className="listContainer">
+      <div className="list-container">
         {listElements}
       </div>
     );
