@@ -26,7 +26,9 @@ export default class CartSummary extends React.Component {
     return (
       <div>
         <button
-          className="btn btn-link pl-0"> &lt; Back to catalog
+          className="btn btn-link pl-0"
+          onClick={() => this.props.setView('catalog', {})}
+        > &lt; Back to catalog
         </button>
         <h3>My Cart</h3>
         <div>
