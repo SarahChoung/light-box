@@ -144,3 +144,7 @@ textarea {
 textarea {
   height: 20vh;
 }
+
+form > div {
+  margin-top: 1%;
+}

@@ -12,10 +12,11 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: 'catalog',
+        name: 'checkout',
         params: {}
       },
-      cart: []
+      cart: [],
+      total: 0
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
@@ -108,6 +109,7 @@ export default class App extends React.Component {
         setView={this.setView} />;
     } else if (view === 'checkout') {
       pageBody = <CheckoutForm
+        cart={this.state.cart}
         placeOrder = {this.placeOrder}
         setView={this.setView} />;
     }

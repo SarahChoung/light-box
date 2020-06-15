@@ -21,21 +21,31 @@ export default class CheckoutForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const orderObject = this.state;
-    this.props.placeOrder(orderObject);
+    if (orderObject.name !== '' && orderObject.creditCard !== '' && orderObject.shippingAddess !== '') {
+      this.props.placeOrder(orderObject);
+    }
   }
 
   render() {
+    const cartList = this.props.cart;
+    let itemTotal = 0;
+    if (cartList.length > 0) {
+      cartList.forEach(cartItem => {
+        itemTotal += cartItem.price;
+      });
+      itemTotal = convertToPrice(itemTotal);
+    }
     return (
       <div className="checkout-container">
         <div>
           <h3>My Cart</h3>
-          <p className="price font-weight-bold mt-3">Order Total: </p>
+          <p className="price font-weight-bold mt-3">{`Order Total: $${itemTotal}`} </p>
         </div>
         <form
           onSubmit={this.handleSubmit}
           className="order-form">
           <div>
-            <label htmlFor="name">Name</label><br/>
+            <label htmlFor="name">Name</label><br />
             <input
               type="text"
               name="name"
@@ -45,7 +55,7 @@ export default class CheckoutForm extends React.Component {
             />
           </div>
           <div>
-            <label htmlFor="credit-card">Credit Card</label><br/>
+            <label htmlFor="credit-card">Credit Card</label><br />
             <input
               type="text"
               name="creditCard"
@@ -55,7 +65,7 @@ export default class CheckoutForm extends React.Component {
             />
           </div>
           <div>
-            <label htmlFor="shipping-address">Shipping Address</label><br/>
+            <label htmlFor="shipping-address">Shipping Address</label><br />
             <textarea
               type="text"
               name="shippingAddress"
@@ -65,13 +75,17 @@ export default class CheckoutForm extends React.Component {
             >
             </textarea>
           </div>
-          <div className = "d-flex justify-content-between">
+          <div className="d-flex justify-content-between">
             <button onClick={() => this.props.setView('catalog', {})} className="btn btn-link pl-0" type="button">&lt; Return to Shopping</button>
             <button className="btn btn-primary" type="submit">Submit</button>
           </div>
         </form>
       </div>
-
     );
+    function convertToPrice(rawPrice) {
+      const priceArray = rawPrice.toString().split('');
+      priceArray.splice(priceArray.length - 2, 0, '.');
+      return priceArray.join('');
+    }
   }
 }
