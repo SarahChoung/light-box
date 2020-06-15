@@ -6,7 +6,9 @@ export default class CartSummary extends React.Component {
   render() {
     const cartList = this.props.cart;
     let listCartItems;
+    let hide = 'd-none';
     if (cartList.length > 0) {
+      hide = 'null';
       listCartItems = cartList.map(cartItem => {
         return (
           <CartSummaryItem
@@ -33,6 +35,11 @@ export default class CartSummary extends React.Component {
         <h3 className="mb-3">My Cart</h3>
         <div>
           {listCartItems}
+        </div>
+        <div>
+          <button
+            className={`btn btn-primary ${hide}`}
+            onClick={() => this.props.setView('checkout', {})}>Check Out</button>
         </div>
       </div>
     );
