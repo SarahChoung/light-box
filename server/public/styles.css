@@ -18,7 +18,6 @@ p.logo {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-content: space-betwen;
   margin: 1% 5%;
 }
 
@@ -90,4 +89,14 @@ p.price {
 
 button.back-button {
   color: grey;
+}
+
+/* Cart Summary*/
+.cart-summary-item-card {
+  display: flex;
+  background-color: white;
+}
+
+.summary-image-container {
+  width: 40%;
 }
