@@ -89,7 +89,9 @@ export default class App extends React.Component {
           cartItemCount={this.state.cart.length}
           setView={this.setView}
         />
-        {pageBody}
+        <div className="non-header">
+          {pageBody}
+        </div>
       </div>
     );
   }

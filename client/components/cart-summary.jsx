@@ -24,13 +24,13 @@ export default class CartSummary extends React.Component {
     }
 
     return (
-      <div>
+      <div className="summary-container">
         <button
-          className="btn btn-link pl-0"
+          className="btn btn-link pl-0 mb-1"
           onClick={() => this.props.setView('catalog', {})}
         > &lt; Back to catalog
         </button>
-        <h3>My Cart</h3>
+        <h3 className="mb-3">My Cart</h3>
         <div>
           {listCartItems}
         </div>

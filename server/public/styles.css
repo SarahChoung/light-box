@@ -6,6 +6,13 @@ header {
   color: white;
   background-color: rgb(46, 51, 56);
   padding: 1% 5%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.non-header {
+  margin-top: 7%;
 }
 
 p.logo {
@@ -14,7 +21,7 @@ p.logo {
 }
 
 /* Catalog */
-.listContainer {
+.list-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -22,11 +29,12 @@ p.logo {
 }
 
 div.product-card {
+  cursor: pointer;
   flex-basis: calc(90%/3);
   background-color: white;
   height: 450px;
   border: 1px solid lightgray;
-  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .image-container {
@@ -92,13 +100,29 @@ button.back-button {
 }
 
 /* Cart Summary*/
+.summary-container {
+  margin: 1% 5%;
+}
+
+
 .cart-summary-item-card {
   display: flex;
+  align-items: center;
   background-color: white;
+  height: 350px;
+  margin-bottom: 2%;
+  border: 1px solid lightgrey;
+  padding: 0 2%;
 }
 
 .summary-image-container {
   width: 40%;
+  height: 90%;
+  object-fit: contain;
+}
+
+.summary-info {
+  padding: 0 1%;
 }
 
 .cart-nav {
