@@ -106,7 +106,7 @@ app.post('/api/cart/', (req, res, next) => {
       } else {
         const sql = `
         insert into "carts"("cartId", "createdAt")
-        values(default, default )
+        values(default, default)
         returning "cartId"
       `;
         return db.query(sql)
@@ -153,6 +153,30 @@ app.post('/api/cart/', (req, res, next) => {
         });
     })
     .catch(err => next(err));
+});
+
+app.post('/api/orders', (req, res, next) => {
+  if (!req.session.cartId) {
+    return next(new ClientError('"cartId" not found', 400));
+  } else if (req.body.name && req.body.creditCard && req.body.shippingAddress) {
+    const sql = `
+      insert into "orders"("orderId", "cartId", "name", "creditCard", "shippingAddress", "createdAt")
+      values(default, $1, $2, $3, $4, default)
+      returning "orderId", "createdAt", "name", "creditCard", "shippingAddress"
+    `;
+    const params = [req.session.cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
+    return db.query(sql, params)
+      .then(result => {
+        const order = result.rows[0];
+        if (order) {
+          delete req.session.cartId;
+          return res.status(201).json(order);
+        }
+      })
+      .catch(err => next(err));
+  } else {
+    return next(new ClientError('Must include "name", "creditCard", and "shippingAddress"', 400));
+  }
 });
 
 app.use('/api', (req, res, next) => {
