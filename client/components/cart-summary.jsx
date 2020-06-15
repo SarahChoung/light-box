@@ -10,6 +10,7 @@ export default class CartSummary extends React.Component {
       listCartItems = cartList.map(cartItem => {
         return (
           <CartSummaryItem
+            setView={this.props.setView}
             key={cartItem.cartItemId}
             name={cartItem.name}
             price={cartItem.price}

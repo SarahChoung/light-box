@@ -14,7 +14,9 @@ export default class Header extends React.Component {
         <div>
           <p className="logo"><i className="fas fa-dollar-sign"></i> Wicked Sales</p>
         </div>
-        <div>
+        <div
+          onClick={() => this.props.setView('cart', {})}
+          className="cart-nav">
           <p className="m-0"><span>{this.props.cartItemCount}</span>{` ${itemWord} `}<i className="fas fa-shopping-cart fa-lg"></i></p>
         </div>
       </header>

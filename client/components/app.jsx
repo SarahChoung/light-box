@@ -78,14 +78,18 @@ export default class App extends React.Component {
         addToCart={this.addToCart}
         params={this.state.view.params}
         setView={this.setView} />;
+    } else if (view === 'cart') {
+      pageBody = <CartSummary
+        cart={this.state.cart}
+        setView={this.setView} />;
     }
     return (
       <div>
         <Header
-          cartItemCount={this.state.cart.length}/>
+          cartItemCount={this.state.cart.length}
+          setView={this.setView}
+        />
         {pageBody}
-        <CartSummary
-          cart={this.state.cart} />
       </div>
     );
   }

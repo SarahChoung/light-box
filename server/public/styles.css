@@ -100,3 +100,7 @@ button.back-button {
 .summary-image-container {
   width: 40%;
 }
+
+.cart-nav {
+  cursor: pointer;
+}
