@@ -15,8 +15,7 @@ export default class App extends React.Component {
         name: 'catalog',
         params: {}
       },
-      cart: [],
-      total: 0
+      cart: []
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
