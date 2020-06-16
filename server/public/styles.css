@@ -128,3 +128,28 @@ button.back-button {
 .cart-nav {
   cursor: pointer;
 }
+
+.logo {
+  cursor: pointer;
+}
+
+
+/* Checkout Form */
+.checkout-container {
+  margin: 1% 5%;
+  padding-top: 1%;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid lightgrey;
+}
+
+textarea {
+  height: 20vh;
+}
+
+form > div {
+  margin-top: 1%;
+}
