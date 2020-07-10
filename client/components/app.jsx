@@ -15,12 +15,14 @@ export default class App extends React.Component {
         name: 'catalog',
         params: {}
       },
-      cart: []
+      cart: [],
+      isLoggedIn: false
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    this.toggleLoggedIn = this.toggleLoggedIn.bind(this);
   }
 
   setView(name, params) {
@@ -79,6 +81,10 @@ export default class App extends React.Component {
 
   }
 
+  toggleLoggedIn() {
+    this.setState({ isLoggedIn: true });
+  }
+
   componentDidMount() {
     fetch('/api/health-check')
       .then(res => res.json())
@@ -89,6 +95,11 @@ export default class App extends React.Component {
   }
 
   render() {
+    let modalDisplay = null;
+    if (this.state.isLoggedIn === true) {
+      modalDisplay = 'd-none';
+    }
+
     if (this.state.isLoading) {
       return <h1>Testing connections...</h1>;
     }
@@ -120,6 +131,12 @@ export default class App extends React.Component {
         />
         <div className="non-header">
           {pageBody}
+        </div>
+        <div className = {`modal-overlay ${modalDisplay}`}>
+          <div className="modal-content align-items-center text-center w-50 p-5">
+            <p>Please note that this website is for demonstration purposes only. By clicking the following button, I understand that no real purchases will be made and that personal information such as names, addresses, and real credit card numbers should not be used.</p>
+            <button className="btn btn-primary w-50" onClick={() => this.toggleLoggedIn()} type="button">I Agree</button>
+          </div>
         </div>
       </div>
     );
