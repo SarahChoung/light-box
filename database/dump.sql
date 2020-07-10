@@ -230,6 +230,8 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 --
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
+75	51	5	5000
+76	51	4	5000
 \.
 
 
@@ -238,6 +240,7 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
+51	2020-07-10 05:22:14.229108+00
 \.
 
 
@@ -258,8 +261,8 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 1	Hakuna Matata	5000	/images/simba.jpg	This beautifully crafted paper light box displays some familiar looking friends. With this in your room, you will definitely have no worries for the rest of your days.	Designed by PaperLightBoxDesign. Our lightboxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
 4	Does Whatever a Spider Can	5000	/images/spiderman.jpg	Your favorite friendly neighborhood spider, in paper form!	Designed by PaperLightBoxDesign. Our light boxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
 5	Trekking	5000	/images/trekking.jpg	Enjoy some nice outdoor scenery from the comfort of your own home. No hiking required!	Designed by PaperLightBoxDesign. Our light boxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
-2	Lantern Scene	5000	/images/tangled.jpg	The iconic lantern scene from the movie about your favorite long-haired princess is perfectly captured with this light box. At last you will see the light with this in your room	Designed by PaperLightBoxDesign. Our light boxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
 3	The Last Agni Kai	7999	/images/agni-kai.jpg	The heart-wrenching Last Agni Kai scene from a certain television show revolving around a beloved airbender is beautifully displayed with this light box.	Designed by BenCharman. Our light boxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
+2	Lantern Scene	5000	/images/tangled.jpg	The iconic lantern scene from the movie about your favorite long-haired princess is perfectly captured with this light box. At last you will see the light with this in your room.	Designed by PaperLightBoxDesign. Our light boxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
 \.
 
 
@@ -267,14 +270,14 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 74, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 76, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 50, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 51, true);
 
 
 --
