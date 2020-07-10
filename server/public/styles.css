@@ -11,6 +11,12 @@ header {
   width: 100%;
 }
 
+.logo-img {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
 .non-header {
   margin-top: 7%;
 }
@@ -37,8 +43,13 @@ div.product-card {
   margin-bottom: 1%;
 }
 
+.product-card:hover {
+  box-shadow: 0 0px 10px 5px rgba(145, 92, 182, .4);
+}
+
 .image-container {
   height: 60%;
+  background-color: black;
 }
 
 img {
@@ -152,4 +163,27 @@ textarea {
 
 form > div {
   margin-top: 1%;
+}
+
+/* carousel */
+
+.carousel {
+  width: 100%
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.modal-content {
+  background-color: lavender;
 }

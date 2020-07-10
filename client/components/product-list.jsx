@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductListItem from './product-list-item';
+import Carousel from './carousel';
 
 export default class ProductList extends React.Component {
   constructor(props) {
@@ -38,8 +39,11 @@ export default class ProductList extends React.Component {
       );
     });
     return (
-      <div className="list-container">
-        {listElements}
+      <div>
+        <Carousel />
+        <div className="list-container">
+          {listElements}
+        </div>
       </div>
     );
   }
