@@ -172,7 +172,8 @@ CREATE TABLE public.products (
     price integer NOT NULL,
     image text NOT NULL,
     "shortDescription" text NOT NULL,
-    "longDescription" text NOT NULL
+    "longDescription" text NOT NULL,
+    artist text
 );
 
 
@@ -229,44 +230,6 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 --
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
-1	23	1	2999
-2	26	1	2999
-3	27	1	2999
-4	28	1	2999
-5	29	1	2999
-6	30	6	830
-7	30	6	830
-8	30	6	830
-9	30	1	2999
-10	30	5	9900
-11	30	1	2999
-12	30	1	2999
-13	31	1	2999
-14	31	2	2595
-15	32	3	2900
-16	32	2	2595
-17	32	2	2595
-18	32	3	2900
-19	32	3	2900
-20	32	2	2595
-21	32	3	2900
-22	32	3	2900
-23	32	3	2900
-24	32	3	2900
-25	32	3	2900
-26	32	2	2595
-27	32	1	2999
-28	32	1	2999
-29	32	1	2999
-30	32	2	2595
-31	32	1	2999
-32	32	1	2999
-33	32	2	2595
-34	33	3	2900
-35	33	3	2900
-36	33	2	2595
-37	33	1	2999
-38	33	1	2999
 \.
 
 
@@ -275,39 +238,6 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
-1	2020-06-14 03:16:09.722598+00
-2	2020-06-14 03:18:41.00693+00
-3	2020-06-14 03:19:30.712373+00
-4	2020-06-14 03:20:42.688896+00
-5	2020-06-14 03:20:50.041107+00
-6	2020-06-14 03:20:55.609192+00
-7	2020-06-14 03:21:08.808013+00
-8	2020-06-14 03:24:14.31432+00
-9	2020-06-14 03:24:54.191785+00
-10	2020-06-14 03:25:23.212728+00
-11	2020-06-14 03:25:57.287547+00
-12	2020-06-14 03:29:06.960839+00
-13	2020-06-14 03:31:22.396781+00
-14	2020-06-14 03:32:54.893998+00
-15	2020-06-14 03:33:50.012528+00
-16	2020-06-14 03:34:37.755787+00
-17	2020-06-14 03:35:28.655535+00
-18	2020-06-14 03:36:05.19602+00
-19	2020-06-14 03:38:19.182135+00
-20	2020-06-14 03:39:29.448924+00
-21	2020-06-14 03:41:59.45602+00
-22	2020-06-14 03:50:54.66791+00
-23	2020-06-14 03:55:04.788442+00
-24	2020-06-14 03:57:26.301468+00
-25	2020-06-14 03:58:24.701946+00
-26	2020-06-14 04:00:25.379788+00
-27	2020-06-14 04:01:52.717857+00
-28	2020-06-14 04:04:45.193434+00
-29	2020-06-14 04:09:44.494226+00
-30	2020-06-14 04:10:14.380686+00
-31	2020-06-14 17:13:35.68141+00
-32	2020-06-14 21:09:34.318917+00
-33	2020-06-15 03:18:22.92372+00
 \.
 
 
@@ -323,13 +253,13 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 -- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.products ("productId", name, price, image, "shortDescription", "longDescription") FROM stdin;
-1	Shake Weight	2999	/images/shake-weight.jpg	Dynamic Inertia technology ignites muscles in arms, shoulders, and chest.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-2	ShamWow	2595	/images/shamwow.jpg	It's like a chamois, towel, and sponge, all in one! Soaks up to 10x it's weight in any liquid!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-3	Snuggie	2900	/images/snuggie.jpg	Super-Soft Fleece with pockets! One Size fits all Adults! Keeps you Warm & Your Hands-Free!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-4	Wax Vac	999	/images/wax-vac.jpg	Gentle way to remove ear wax. Safe and hygienic. Reduces the risk of painful infections.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-5	Ostrich Pillow	9900	/images/ostrich-pillow.jpg	Create your own snugly space in the world and feel-good anywhere with the ultimate cocoon pillow.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-6	Tater Mitts	830	/images/tater-mitts.jpg	8 Seconds is all you need with Tater Mitts. Quickly and easily prepare all your favorite potato dishes with Tater Mitts.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
+COPY public.products ("productId", name, price, image, "shortDescription", "longDescription", artist) FROM stdin;
+6	Cafe Wandering	3099	/images/evening-stroll.jpg	This light box portrays a lovely couple walking down the city streets.	Designed by LightLockCrafts. Our light boxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	\N
+1	Hakuna Matata	5000	/images/simba.jpg	This beautifully crafted paper light box displays some familiar looking friends. With this in your room, you will definitely have no worries for the rest of your days.	Designed by PaperLightBoxDesign. Our lightboxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
+4	Does Whatever a Spider Can	5000	/images/spiderman.jpg	Your favorite friendly neighborhood spider, in paper form!	Designed by PaperLightBoxDesign. Our light boxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
+5	Trekking	5000	/images/trekking.jpg	Enjoy some nice outdoor scenery from the comfort of your own home. No hiking required!	Designed by PaperLightBoxDesign. Our light boxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
+2	Lantern Scene	5000	/images/tangled.jpg	The iconic lantern scene from the movie about your favorite long-haired princess is perfectly captured with this light box. At last you will see the light with this in your room	Designed by PaperLightBoxDesign. Our light boxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
+3	The Last Agni Kai	7999	/images/agni-kai.jpg	The heart-wrenching Last Agni Kai scene from a certain television show revolving around a beloved airbender is beautifully displayed with this light box.	Designed by BenCharman. Our light boxes emit softer and prettier light rays compared to your traditional night light. Brightness is adjustable. Uses a low power safety LED strip as its source, and is equipped with a UL-Listed adapter. Designed and crafted using optimized laser technology.	PaperLightBoxDesign
 \.
 
 
@@ -337,21 +267,21 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 38, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 74, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 33, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 50, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 1, false);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 18, true);
 
 
 --

@@ -11,7 +11,6 @@ export default class Carousel extends React.Component {
   render() {
     return (
       <div className="carousel text-center">
-        <h1>hi</h1>
       </div>
     );
   }
