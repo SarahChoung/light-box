@@ -39,6 +39,7 @@ div.product-card {
 
 .image-container {
   height: 60%;
+  background-color: black;
 }
 
 img {
@@ -152,4 +153,10 @@ textarea {
 
 form > div {
   margin-top: 1%;
+}
+
+/* carousel */
+
+.carousel {
+  width: 100%
 }
