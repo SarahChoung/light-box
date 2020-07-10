@@ -4,7 +4,7 @@ export default class Header extends React.Component {
 
   render() {
     let itemWord;
-    if (this.props.cartItem === 1) {
+    if (this.props.cartItemCount === 1) {
       itemWord = 'Item';
     } else {
       itemWord = 'Items';
