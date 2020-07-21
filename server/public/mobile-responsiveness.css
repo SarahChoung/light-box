@@ -1,0 +1,59 @@
+@media (max-width: 767px) and (orientation: portrait) {
+  #details-add {
+    text-align: center;
+  }
+
+  .description-image-container {
+    padding-bottom: 5%;
+  }
+
+  .long-description {
+    padding: 5% 2% 0;
+  }
+
+  .cart-summary-item-card {
+    justify-content: center;
+  }
+
+  .summary-image-container {
+    width: 100%;
+  }
+
+  .summary-info {
+    width: 100%;
+  }
+
+  #order-total {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 991.98px) and (orientation: landscape) {
+  div.product-card {
+    flex-basis: calc(90% / 2);
+    height: auto;
+    min-width: auto;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .description-image-container {
+    max-height: 30%;
+    float: left;
+    width: 40%;
+  }
+
+  .description-info-container {
+    padding: 0 2%;
+    display: inline-block;
+    width: 60%;
+  }
+}
