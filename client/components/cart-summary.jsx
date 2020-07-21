@@ -45,8 +45,8 @@ export default class CartSummary extends React.Component {
         <div>
           {listCartItems}
         </div>
-        <div className="d-flex justify-content-between">
-          <h3>{`Item Total $${itemTotal}`}</h3>
+        <div className="d-flex justify-content-between align-items-center">
+          <h3 id="order-total">{`Item Total $${itemTotal}`}</h3>
           <button
             className={`btn btn-primary ${hide}`}
             onClick={() => this.props.setView('checkout', {})}>Checkout</button>

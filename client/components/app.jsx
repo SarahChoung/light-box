@@ -120,7 +120,7 @@ export default class App extends React.Component {
     } else if (view === 'checkout') {
       pageBody = <CheckoutForm
         cart={this.state.cart}
-        placeOrder = {this.placeOrder}
+        placeOrder={this.placeOrder}
         setView={this.setView} />;
     }
     return (
@@ -132,8 +132,8 @@ export default class App extends React.Component {
         <div className="non-header">
           {pageBody}
         </div>
-        <div className = {`modal-overlay ${modalDisplay}`}>
-          <div className="modal-content align-items-center text-center w-50 p-5">
+        <div className={`modal-overlay ${modalDisplay}`}>
+          <div className="modal-content align-items-center text-center">
             <p>Please note that this website is for demonstration purposes only. By clicking the following button, I understand that no real purchases will be made and that personal information such as names, addresses, and real credit card numbers should not be used.</p>
             <button className="btn btn-primary w-50" onClick={() => this.toggleLoggedIn()} type="button">I Agree</button>
           </div>
