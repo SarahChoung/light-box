@@ -7,6 +7,7 @@ A full stack Node.js and React shopping cart app.
 - React.js
 - Webpack 4
 - Babel
+- Express
 - Bootstrap 4
 - Node.js
 - PostgreSQL
