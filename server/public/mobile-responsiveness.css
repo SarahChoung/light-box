@@ -44,6 +44,28 @@
   }
 }
 
+@media (max-width: 800px) and (orientation: landscape) {
+  #details-add {
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) and (orientation: landscape) {
+  .image-container {
+    height: 55%;
+  }
+
+  .info-container {
+    height: 45%;
+  }
+}
+
+@media (max-width: 568px) and (orientation: landscape) {
+  div.product-card {
+    height: 395px;
+  }
+}
+
 @media (min-width: 768px) {
   .description-image-container {
     max-height: 30%;
@@ -55,5 +77,21 @@
     padding: 0 2%;
     display: inline-block;
     width: 60%;
+  }
+}
+
+@media (min-width: 1200px) {
+  div.product-card {
+    height: 500px;
+  }
+}
+
+@media (orientation: portrait) {
+  .image-container {
+    height: 60%;
+  }
+
+  .info-container {
+    height: 40%;
   }
 }

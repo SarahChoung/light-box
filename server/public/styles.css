@@ -38,7 +38,7 @@ div.product-card {
   cursor: pointer;
   flex-basis: calc(90% / 3);
   background-color: white;
-  height: 500px;
+  height: 545px;
   min-width: 300px;
   border: 1px solid lightgray;
   margin: 0 1vh 2vh;
@@ -96,8 +96,9 @@ p.price {
 }
 
 .short-description-container {
-  height: 55%;
-  overflow-y: auto;
+  box-sizing: border-box;
+  max-height: 60%;
+  width: 100%;
 }
 
 .short-description {
