@@ -35,6 +35,12 @@ export default class CheckoutForm extends React.Component {
       });
       itemTotal = convertToPrice(itemTotal);
     }
+
+    let submitDisabled = true;
+    if (this.state.name && this.state.creditCard && this.state.shippingAddress) {
+      submitDisabled = false;
+    }
+
     return (
       <div className="checkout-container">
         <div>
@@ -45,7 +51,7 @@ export default class CheckoutForm extends React.Component {
           onSubmit={this.handleSubmit}
           className="order-form">
           <div>
-            <label htmlFor="name">Name</label><br />
+            <label htmlFor="name">Name*</label><br />
             <input
               type="text"
               name="name"
@@ -55,7 +61,7 @@ export default class CheckoutForm extends React.Component {
             />
           </div>
           <div>
-            <label htmlFor="credit-card">Credit Card</label><br />
+            <label htmlFor="credit-card">Credit Card*</label><br />
             <input
               type="text"
               name="creditCard"
@@ -65,7 +71,7 @@ export default class CheckoutForm extends React.Component {
             />
           </div>
           <div>
-            <label htmlFor="shipping-address">Shipping Address</label><br />
+            <label htmlFor="shipping-address">Shipping Address*</label><br />
             <textarea
               type="text"
               name="shippingAddress"
@@ -77,11 +83,12 @@ export default class CheckoutForm extends React.Component {
           </div>
           <div className="d-flex justify-content-between">
             <button onClick={() => this.props.setView('catalog', {})} className="btn btn-link pl-0" type="button">&lt; Return to Shopping</button>
-            <button className="btn btn-primary" type="submit">Submit</button>
+            <button disabled={submitDisabled} className="btn btn-primary" type="submit">Submit</button>
           </div>
         </form>
       </div>
     );
+
     function convertToPrice(rawPrice) {
       const priceArray = rawPrice.toString().split('');
       priceArray.splice(priceArray.length - 2, 0, '.');

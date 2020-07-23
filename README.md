@@ -18,7 +18,7 @@ A full stack Node.js and React shopping cart app.
 
 ## Live Demo
 
-Try the application live at [https://light-box.sarahchoung.com/]
+Try the application live at [https://light-box.sarahchoung.com/](https://light-box.sarahchoung.com/)
 
 ## Features
 
