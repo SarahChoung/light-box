@@ -1,3 +1,7 @@
+* {
+  font-family: Helvetica, sans-serif;
+}
+
 body {
   background-color: rgb(247, 248, 249);
 }
@@ -11,8 +15,8 @@ header {
 }
 
 .logo-img {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   display: inline-block;
 }
 
@@ -21,8 +25,9 @@ header {
 }
 
 p.logo {
-  font-size: 25px;
+  font-size: 30px;
   margin: auto;
+  font-family: "Courgette", sans-serif;
 }
 
 /* Catalog */
@@ -238,6 +243,15 @@ form > div {
 #goRight:hover {
   background: white;
   opacity: 0.8;
+}
+
+.chevron {
+  color: white;
+}
+
+#goLeft:hover .chevron,
+#goRight:hover .chevron {
+  color: black;
 }
 
 #goLeft {

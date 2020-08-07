@@ -11,8 +11,8 @@ export default class Header extends React.Component {
     }
     return (
       <header className="d-flex justify-content-between align-items-center fixed-top">
-        <div className="logo" onClick={() => this.props.setView('catalog', {})}>
-          <p className="logo"><img className="logo-img" src="/images/nightlight-icon-inverted.png" /> Light Box</p>
+        <div className="logo d-flex align-items-center" onClick={() => this.props.setView('catalog', {})}>
+          <img className="logo-img mr-1" src="/images/nightlight-icon-inverted.png" /><p className="logo"> Light Box</p>
         </div>
         <div
           onClick={() => this.props.setView('cart', {})}
