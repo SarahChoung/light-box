@@ -4,6 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
+import Slider from './slider';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class App extends React.Component {
         params: {}
       },
       cart: [],
-      isLoggedIn: false
+      isLoggedIn: true // change back to false
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
@@ -107,7 +108,10 @@ export default class App extends React.Component {
     const view = this.state.view.name;
     let pageBody;
     if (view === 'catalog') {
-      pageBody = <ProductList setView={this.setView} />;
+      pageBody = <div>
+        <Slider />
+        <ProductList setView={this.setView} />
+      </div>;
     } else if (view === 'details') {
       pageBody = <ProductDetails
         addToCart={this.addToCart}

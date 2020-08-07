@@ -10,9 +10,9 @@ export default class Header extends React.Component {
       itemWord = 'Items';
     }
     return (
-      <header className="d-flex justify-content-between align-items-center">
+      <header className="d-flex justify-content-between align-items-center fixed-top">
         <div className="logo" onClick={() => this.props.setView('catalog', {})}>
-          <p className="logo"><img className="logo-img" src="/images/nightlight-icon-inverted.png"/> Light Box</p>
+          <p className="logo"><img className="logo-img" src="/images/nightlight-icon-inverted.png" /> Light Box</p>
         </div>
         <div
           onClick={() => this.props.setView('cart', {})}

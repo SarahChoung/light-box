@@ -42,6 +42,9 @@
   p {
     font-size: 0.8rem;
   }
+  .modal-content {
+    width: 90%;
+  }
 }
 
 @media (max-width: 800px) and (orientation: landscape) {
