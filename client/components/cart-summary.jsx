@@ -35,7 +35,7 @@ export default class CartSummary extends React.Component {
     }
 
     return (
-      <div className="summary-container">
+      <div className="summary-container p-1" style={{ backgroundColor: 'lightgrey', minHeight: '50vh' }}>
         <button
           className="btn btn-link pl-0 mb-1"
           onClick={() => this.props.setView('catalog', {})}
