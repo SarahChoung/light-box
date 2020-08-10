@@ -204,7 +204,7 @@ form > div {
 .slider {
   position: relative;
   width: 100%;
-  height: 93vh;
+  max-height: 93vh;
   box-sizing: border-box;
   margin-top: -30px;
   margin-bottom: 30px;
