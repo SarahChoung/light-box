@@ -17,7 +17,7 @@ export default function Slider() {
         return (
           <div key={index} className="slide"
             style={{ transform: `translateX(${x}%)` }}>
-            <video className="banner-img" height='100%' loop autoPlay>
+            <video className="banner-img" height='100%' loop autoPlay muted>
               <source src={item} type="video/mp4" />
               <source src={item} type="video/ogg" />
               Your browser does not support the video tag.
