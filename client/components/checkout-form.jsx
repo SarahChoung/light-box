@@ -42,7 +42,7 @@ export default class CheckoutForm extends React.Component {
     }
 
     return (
-      <div className="checkout-container">
+      <div className="checkout-container p-5">
         <div>
           <h3>My Cart</h3>
           <p className="price font-weight-bold mt-3">{`Order Total: $${itemTotal}`} </p>

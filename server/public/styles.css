@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #26324a;
 }
 
 header {
@@ -12,7 +12,7 @@ header {
   padding: 1% 5%;
   width: 100%;
   height: 70px;
-  background-color: black;
+  background-color: #26324a;
 }
 
 .logo-img {
@@ -49,7 +49,7 @@ div.product-card {
 
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 0px 4px 4px lightgoldenrodyellow;
+  box-shadow: 0px 0px 4px 4px lightgray;
 }
 
 .image-container {
@@ -125,6 +125,8 @@ button.back-button {
 /* Cart Summary*/
 .summary-container {
   margin: 1% 5%;
+  min-height: "50vh";
+  background-color: white;
 }
 
 .cart-summary-item-card {
@@ -133,8 +135,6 @@ button.back-button {
   align-items: center;
   background-color: white;
   margin-bottom: 2%;
-  border: 1px solid lightgrey;
-  padding: 2%;
 }
 
 .summary-image-container {
@@ -159,7 +159,7 @@ button.back-button {
 /* Checkout Form */
 .checkout-container {
   margin: 1% 5%;
-  padding-top: 1%;
+  background-color: white;
 }
 
 input,
@@ -232,7 +232,7 @@ form > div {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 10%;
+  width: 5%;
   height: 100%;
   background: none;
   border: none;
