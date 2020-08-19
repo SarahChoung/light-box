@@ -17,7 +17,7 @@ export default class App extends React.Component {
         params: {}
       },
       cart: [],
-      isLoggedIn: true // change back to false
+      isLoggedIn: false
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
